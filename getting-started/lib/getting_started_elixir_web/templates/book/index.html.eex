@@ -1,0 +1,28 @@
+
+<h3>Books</h3>
+<a href="/books/new" class="btn btn-success btn-sm">
+  <i class="glyphicon glyphicon-plus"></i>
+  Add book
+</a>
+
+<%= for book <- @books do %>
+<div class="media">
+  <%= link to: book_path(@conn, :show, book.key.name) do %>
+    <div class="media-left">
+      <img src="http://placekitten.com/g/128/192">
+    </div>
+    <div class="media-body">
+      <h4><%= book_title(book) %></h4>
+      <p><%= book_author(book) %></p>
+    </div>
+  <% end %>
+</div>
+<% end %>
+
+<%= if @next_page_token do %>
+<nav>
+  <ul class="pager">
+    <li><a href="?page_token=<%= @next_page_token %>">More</a></li>
+  </ul>
+</nav>
+<% end %>

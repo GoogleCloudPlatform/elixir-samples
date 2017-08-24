@@ -19,7 +19,7 @@ defmodule GettingStartedElixir.Mixfile do
   def application do
     [
       mod: {GettingStartedElixir.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :goth]
     ]
   end
 
@@ -36,8 +36,12 @@ defmodule GettingStartedElixir.Mixfile do
       {:phoenix_pubsub, "~> 1.0"},
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
+      {:phoenix_ecto, "~> 3.2"},
       {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+      {:diplomat, "~> 0.2"},
+      {:uuid, "~> 1.1"},
+      {:ecto, "~> 2.1"}
     ]
   end
 end

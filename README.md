@@ -1,19 +1,22 @@
-# GettingStartedElixir
+# Google Cloud Platform Elixir Samples
 
-To start your Phoenix server:
+This repository holds sample code written in Elixir that demonstrates the Google
+Cloud Platform.
 
-  * Install dependencies with `mix deps.get`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+## Contributing changes.
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+Entirely new samples are not accepted. Bug fixes are welcome, either as pull
+requests or as GitHub issues.
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+See [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute.
 
-## Learn more
+## Licensing
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+Code in this repository is licensed under the Apache 2.0. See [LICENSE](LICENSE).
+
+## Index
+
+|Path|Description|
+|---|---|
+|[getting-started](getting-started)|Bookshelf tutorial with DataStore integration.|
+

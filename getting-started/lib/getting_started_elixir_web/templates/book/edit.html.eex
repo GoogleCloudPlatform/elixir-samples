@@ -1,0 +1,25 @@
+<h3>Edit book</h3>
+
+<%= form_for @changeset, book_path(@conn, :update, @changeset.data), [method: :put], fn f -> %>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <%= text_input f, :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label for="author">Author</label>
+    <%= text_input f, :author, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label for="published_date">Date Published</label>
+    <%= text_input f, :published_date, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <%= textarea f, :description, class: "form-control" %>
+  </div>
+
+  <button id="submit" type="submit" class="btn btn-success">Save</button>
+<% end %>

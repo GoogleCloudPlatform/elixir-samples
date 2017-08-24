@@ -16,11 +16,9 @@ defmodule GettingStartedElixirWeb.Router do
   scope "/", GettingStartedElixirWeb do
     pipe_through :browser # Use the default browser stack
 
+    resources "/books", BookController
+
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", GettingStartedElixirWeb do
-  #   pipe_through :api
-  # end
 end
