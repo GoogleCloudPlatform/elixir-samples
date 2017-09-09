@@ -21,6 +21,9 @@ config :getting_started_elixir, GettingStartedElixirWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
+# Configure goth to use the metadata service
+config :goth, json: nil
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key

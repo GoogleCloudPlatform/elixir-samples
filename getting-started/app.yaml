@@ -1,0 +1,2 @@
+env: flex
+runtime: gs://elixir-runtime/elixir.yaml

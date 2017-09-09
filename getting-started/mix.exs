@@ -40,6 +40,7 @@ defmodule GettingStartedElixir.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:diplomat, "~> 0.2"},
+      {:goth, "~> 0.5.1"},
       {:uuid, "~> 1.1"},
       {:ecto, "~> 2.1"}
     ]
