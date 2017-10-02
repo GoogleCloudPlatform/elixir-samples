@@ -1,6 +1,4 @@
 defmodule GoogleApi.Storage.Samples do
-  require Tesla
-
   @moduledoc """
   Documentation for GoogleApi.Storage.Samples.
   """
