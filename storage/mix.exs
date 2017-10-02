@@ -3,7 +3,7 @@ defmodule GoogleApi.Storage.Samples.Mixfile do
 
   def project do
     [
-      app: :storage,
+      app: :storage_sample,
       version: "0.0.1",
       elixir: "~> 1.5",
       start_permanent: Mix.env == :prod,
@@ -14,7 +14,7 @@ defmodule GoogleApi.Storage.Samples.Mixfile do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:logger, :goth]
     ]
   end
 
