@@ -19,13 +19,7 @@ defmodule GoogleApi.Storage.Samples do
     {:ok, token} = Goth.Token.for_scope("https://www.googleapis.com/auth/cloud-platform")
     conn = GoogleApi.Storage.V1.Connection.new(token.token)
     {:ok, response} = GoogleApi.Storage.V1.Api.Buckets.storage_buckets_list(conn, project_id)
-    print_buckets(response.items)
+    Enum.each(response.items, &IO.puts(&1.id))
     "done!"
   end
-
-  defp print_buckets([bucket|buckets]) do
-    IO.puts bucket.id
-    print_buckets(buckets)
-  end
-  defp print_buckets([]), do: nil
 end
