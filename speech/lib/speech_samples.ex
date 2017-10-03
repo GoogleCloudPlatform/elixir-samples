@@ -8,7 +8,7 @@ defmodule GoogleApi.Speech.Samples do
 
   ## Examples
 
-      GoogleApi.Speech.Samples.recognize("gs://elixir-samples/audio.raw", :LINEAR16, 16000)
+      iex> GoogleApi.Speech.Samples.recognize("gs://elixir-samples/audio.raw", :LINEAR16, 16000)
       how old is the Brooklyn Bridge
       "done!"
 
@@ -20,7 +20,7 @@ defmodule GoogleApi.Speech.Samples do
       config: %GoogleApi.Speech.V1.Model.RecognitionConfig{
         encoding:  encoding,
         sampleRateHertz: sampleRateHertz,
-        languageCode: "en_US"
+        languageCode: languageCode
       }
     }
 

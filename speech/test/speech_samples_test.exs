@@ -1,8 +1,8 @@
 defmodule GoogleApi.Speech.Samples.Test do
   use ExUnit.Case
   import ExUnit.CaptureIO
-  doctest GoogleApi.Speech.Samples
 
+  @tag :external
   test "transcribe" do
     output = capture_io(fn ->
         GoogleApi.Speech.Samples.recognize(
