@@ -3,7 +3,7 @@ defmodule GoogleApi.Storage.Samples.Mixfile do
 
   def project do
     [
-      app: :storage_sample,
+      app: :storage_samples,
       version: "0.0.1",
       elixir: "~> 1.5",
       start_permanent: Mix.env == :prod,
