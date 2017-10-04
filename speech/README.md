@@ -39,5 +39,11 @@ how old is the Brooklyn Bridge
 "done!"
 ```
 
+To use your own sample audio sample, [upload an audio file][gcs_upload] to Cloud
+Storage. You will need to provide the correct
+[encoding and sample rate][encoding_sample_rate] to the API.
+
 [adc]: https://cloud.google.com/docs/authentication#getting_credentials_for_server-centric_flow
 [service_account_key_file]: https://developers.google.com/identity/protocols/OAuth2ServiceAccount#creatinganaccount
+[gcs_upload]: https://cloud.google.com/storage/docs/object-basics
+[encoding_sample_rate]: https://cloud.google.com/speech/docs/encoding
