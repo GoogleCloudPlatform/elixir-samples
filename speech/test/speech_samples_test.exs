@@ -5,11 +5,11 @@ defmodule GoogleApi.Speech.Samples.Test do
   @tag :external
   test "transcribe" do
     output = capture_io(fn ->
-        GoogleApi.Speech.Samples.recognize(
-          "gs://elixir-samples/audio.raw",
-          :LINEAR16,
-          16000
-        )
+      GoogleApi.Speech.Samples.recognize(
+        "gs://elixir-samples/audio.raw",
+        :LINEAR16,
+        16000
+      )
     end)
     assert String.contains? output, "how old is the Brooklyn Bridge"
   end
