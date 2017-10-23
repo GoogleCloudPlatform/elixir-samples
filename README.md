@@ -19,4 +19,6 @@ Code in this repository is licensed under the Apache 2.0. See [LICENSE](LICENSE)
 |Path|Description|
 |---|---|
 |[getting-started](getting-started)|Bookshelf tutorial with DataStore integration.|
+|[pubsub](pubsub)|Samples for using the Google Cloud Pub/Sub API.|
+|[speech](speech)|Samples for using the Google Cloud Speech API.|
 |[storage](storage)|Samples for using the Google Cloud Storage API.|
