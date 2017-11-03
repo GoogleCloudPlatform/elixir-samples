@@ -4,6 +4,32 @@ defmodule GoogleApi.PubSub.Samples do
   """
 
   @doc """
+  Get a PubSub topic.
+
+  ## Examples
+
+      iex> GoogleApi.PubSub.Samples.get_topic("YOUR_PROJECT_ID", "test-topic")
+
+  """
+  def get_topic(project_id, topic_name) do
+    # Authenticate
+    {:ok, token} = Goth.Token.for_scope("https://www.googleapis.com/auth/cloud-platform")
+    conn = GoogleApi.PubSub.V1.Connection.new(token.token)
+
+    # Make the API request.
+    response = GoogleApi.PubSub.V1.Api.Projects.pubsub_projects_topics_get(
+      conn,
+      project_id,
+      topic_name
+    )
+
+    case response do
+      {:ok, topic} -> topic
+      {:error, _} -> nil
+    end
+  end
+
+  @doc """
   Create a PubSub topic.
 
   ## Examples
@@ -53,6 +79,32 @@ defmodule GoogleApi.PubSub.Samples do
   end
 
   @doc """
+  Get a PubSub subscription.
+
+  ## Examples
+
+      iex> GoogleApi.PubSub.Samples.get_subscription("YOUR_PROJECT_ID", "test-subscription")
+
+  """
+  def get_subscription(project_id, subscription_name) do
+    # Authenticate
+    {:ok, token} = Goth.Token.for_scope("https://www.googleapis.com/auth/cloud-platform")
+    conn = GoogleApi.PubSub.V1.Connection.new(token.token)
+
+    # Make the API request.
+    response = GoogleApi.PubSub.V1.Api.Projects.pubsub_projects_subscriptions_get(
+      conn,
+      project_id,
+      subscription_name
+    )
+
+    case response do
+      {:ok, subscription} -> subscription
+      {:error, _} -> nil
+    end
+  end
+
+  @doc """
   Subscribe to a PubSub topic, print the message on push.
 
   ## Examples
@@ -76,7 +128,7 @@ defmodule GoogleApi.PubSub.Samples do
       }]
     )
 
-    "created subscription #{response.name} on topic #{response.pushConfig.topic}"
+    "created subscription #{response.name} on topic #{response.name}"
   end
 
   @doc """
@@ -113,51 +165,18 @@ defmodule GoogleApi.PubSub.Samples do
     IO.puts("published message #{response.messageIds}")
   end
 
-  def subscriber_listen(project_id, subscription_name) do
-    {:ok, token} = Goth.Token.for_scope("https://www.googleapis.com/auth/cloud-platform")
-    conn = GoogleApi.PubSub.V1.Connection.new(token.token)
+  def start_subscription_supervisor(project_id, subscription_name) do
+    import Supervisor.Spec
 
-    # Make a subscription pull
-    {:ok, response} = GoogleApi.PubSub.V1.Api.Projects.pubsub_projects_subscriptions_pull(
-      conn,
-      project_id,
-      subscription_name,
-      [body: %GoogleApi.PubSub.V1.Model.PullRequest{
-        maxMessages: 10
-      }]
-    )
+    # Define workers and child supervisors to be supervised
+    children = [
+      # Start the worker when the application starts
+      supervisor(GoogleApi.PubSub.Samples.Subscriber, [project_id, subscription_name]),
+    ]
 
-    for message <- response.receivedMessages do
-      # Acknowledge the message was received
-      GoogleApi.PubSub.V1.Api.Projects.pubsub_projects_subscriptions_acknowledge(
-        conn,
-        project_id,
-        subscription_name,
-        [body: %GoogleApi.PubSub.V1.Model.AcknowledgeRequest{
-          ackIds: [message.ackId]
-        }]
-      )
-      IO.puts("received and acknowledged message: #{Base.decode64!(message.message.data)}")
-    end
-  end
-
-  @doc """
-  Creates a subscription process and publishes a message to it.
-
-  ## Examples
-
-      iex> GoogleApi.PubSub.Samples.async_publish_and_subscribe(
-        "YOUR_PROJECT_ID",
-        "test-topic",
-        "test-subscription",
-        "This is a message"
-      )
-      "published message 159505488737289"
-      "received and acknowledged message: This is a message
-
-  """
-  def async_publish_and_subscribe(project_id, topic_name, subscription_name, message) do
-    publish(project_id, topic_name, message)
-    spawn(GoogleApi.PubSub.Samples, :subscriber_listen, [project_id, subscription_name])
+    # See https://hexdocs.pm/elixir/Supervisor.html
+    # for other strategies and supported options
+    opts = [strategy: :one_for_one, name: GoogleApi.PubSub.Samples.Supervisor]
+    Supervisor.start_link(children, opts)
   end
 end
