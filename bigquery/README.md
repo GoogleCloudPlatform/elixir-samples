@@ -1,10 +1,10 @@
-# Google Cloud Storage Samples
+# Google Cloud BigQuery Samples
 
-This project includes samples for running Google Cloud Storage
+This project includes samples for running Google Cloud BigQuery
 
 ## Installing Dependencies
 
-Install the dependencies, namely `google_api_storage`, using Mix:
+Install the dependencies, namely `google_api_big_query`, using Mix:
 
 ```sh
 mix deps.get
@@ -30,14 +30,34 @@ Use Interactive Elixir and Mix to compile and run the samples
 iex -S mix
 ```
 
-Now you can run the samples! For example, to list your cloud storage buckets,
+Now you can run the samples! For example, to list your cloud bigquery buckets,
 type the following into the Interactive Elixir shell:
 
 ```ex
-iex(1)> GoogleApi.Storage.Samples.list_buckets("YOUR_PROJECT_ID")
-your_bucket_1
-your_bucket_2
-"done!"
+iex(1)> sql = "SELECT TOP(corpus, 10) as title, COUNT(*) as unique_words
+                FROM [publicdata:samples.shakespeare]"
+iex(2)> GoogleApi.BigQuery.Samples.sync_query("YOUR_PROJECT_ID", sql)
+title: hamlet
+unique_words: 5318
+title: kinghenryv
+unique_words: 5104
+title: cymbeline
+unique_words: 4875
+title: troilusandcressida
+unique_words: 4795
+title: kinglear
+unique_words: 4784
+title: kingrichardiii
+unique_words: 4713
+title: 2kinghenryvi
+unique_words: 4683
+title: coriolanus
+unique_words: 4653
+title: 2kinghenryiv
+unique_words: 4605
+title: antonyandcleopatra
+unique_words: 4582
+:ok
 ```
 
 [adc]: https://cloud.google.com/docs/authentication#getting_credentials_for_server-centric_flow
