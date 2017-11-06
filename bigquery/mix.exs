@@ -22,7 +22,7 @@ defmodule GoogleApi.BigQuery.Samples.Mixfile do
   defp deps do
     [
       {:google_api_big_query , "~> 0.0.1"},
-      {:goth, "~> 0.6.0"}
+      {:goth, "~> 0.7.0"}
     ]
   end
 end
