@@ -4,6 +4,7 @@ defmodule Mix.Tasks.Pubsub do
   @shortdoc "Runs a simple publish/subscribe example."
   def run(_) do
     {:ok, _started} = Application.ensure_all_started(:goth)
+    :httpc.set_options(pipeline_timeout: 1000)
 
     project_id = (IO.gets "Project ID?: ")
         |> String.trim("\n")
