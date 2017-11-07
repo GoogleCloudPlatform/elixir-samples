@@ -5,7 +5,7 @@ defmodule GoogleApi.Speech.Samples.Mixfile do
     [
       app: :speech_sample,
       version: "0.0.1",
-      elixir: "~> 1.5",
+      elixir: "~> 1.4",
       start_permanent: Mix.env == :prod,
       deps: deps()
     ]
@@ -22,7 +22,7 @@ defmodule GoogleApi.Speech.Samples.Mixfile do
   defp deps do
     [
       {:google_api_speech, "~> 0.0.1"},
-      {:goth, "~> 0.6.0"}
+      {:goth, "~> 0.7.0"}
     ]
   end
 end
