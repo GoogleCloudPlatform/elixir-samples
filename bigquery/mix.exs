@@ -1,11 +1,11 @@
-defmodule GoogleApi.PubSub.Samples.Mixfile do
+defmodule GoogleApi.BigQuery.Samples.Mixfile do
   use Mix.Project
 
   def project do
     [
-      app: :pubsub_sample,
+      app: :bigquery_samples,
       version: "0.0.1",
-      elixir: "~> 1.4",
+      elixir: "~> 1.5",
       start_permanent: Mix.env == :prod,
       deps: deps()
     ]
@@ -21,7 +21,7 @@ defmodule GoogleApi.PubSub.Samples.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:google_api_pub_sub, "~> 0.0.1"},
+      {:google_api_big_query , "~> 0.0.1"},
       {:goth, "~> 0.7.0"}
     ]
   end

@@ -1,0 +1,22 @@
+language: elixir
+elixir:
+  - 1.4
+  - 1.5
+otp_release:
+  - 19.3
+  - 20.1
+env:
+  - GOOGLE_APPLICATION_CREDENTIALS=$HOME/credentials.json
+install:
+  - echo $GOOGLE_APPLICATION_CREDENTIALS_B64 | base64 --decode >> $HOME/credentials.json
+  - mix local.rebar --force
+  - mix local.hex --force
+script:
+  - |
+    for DIR in ./*/
+    do
+      pushd $DIR
+      mix deps.get
+      mix test
+      popd
+    done
