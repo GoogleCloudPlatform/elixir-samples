@@ -22,7 +22,8 @@ defmodule GoogleApi.PubSub.Samples.Mixfile do
   defp deps do
     [
       {:google_api_pub_sub, "~> 0.0.1"},
-      {:goth, "~> 0.7.0"}
+      {:goth, "~> 0.7.0"},
+      {:mock, "~> 0.2.0", only: :test}
     ]
   end
 end

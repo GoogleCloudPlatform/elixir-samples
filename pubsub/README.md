@@ -45,11 +45,11 @@ iex(2)> GoogleApi.PubSub.Samples.delete_topic("YOUR_PROJECT_ID", "test-topic")
 
 ## Running the PubSub Supervisor
 
-Run `mix pubsub` to walk through an example of publishing and subscribing using
-a subscroption supervisor.
+You can walk through an example of publishing and subscribing by running the
+following in IEx:
 
 ```sh
-mix pubsub
+iex(1) GoogleApi.PubSub.Samples.run
 ```
 
 This will walk you through an example of starting an elixir subscription task
