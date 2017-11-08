@@ -51,7 +51,7 @@ defmodule GoogleApi.PubSub.Samples do
       [body: %{}] # "body" cannot be nil for POST/PUT/PATH/DELETE in httpc
     )
 
-    "created #{response.name}"
+    IO.puts "created #{response.name}"
   end
 
   @doc """
@@ -75,7 +75,7 @@ defmodule GoogleApi.PubSub.Samples do
       topic_name
     )
 
-    "deleted #{topic_name}"
+    IO.puts "deleted #{topic_name}"
   end
 
   @doc """
@@ -124,11 +124,11 @@ defmodule GoogleApi.PubSub.Samples do
       project_id,
       subscription_name,
       [body: %{
-        :topic => "projects/#{project_id}/topics/#{topic_name}"
+        topic: "projects/#{project_id}/topics/#{topic_name}"
       }]
     )
 
-    "created subscription #{response.name} on topic #{response.name}"
+    IO.puts "created subscription #{response.name} on topic #{response.name}"
   end
 
   @doc """
@@ -162,7 +162,9 @@ defmodule GoogleApi.PubSub.Samples do
       [body: request]
     )
 
-    IO.puts("published message #{response.messageIds}")
+    "published message #{response.messageIds}"
+    |> (&IO.ANSI.format([:green, :bright, &1], true)).()
+    |> IO.puts
   end
 
   def start_subscription_supervisor(project_id, subscription_name) do

@@ -45,7 +45,9 @@ defmodule GoogleApi.PubSub.Samples.Subscriber do
             ackIds: [message.ackId]
           }]
         )
-        IO.puts("received and acknowledged message: #{Base.decode64!(message.message.data)}")
+        "received and acknowledged message: #{Base.decode64!(message.message.data)}"
+        |> (&IO.ANSI.format([:green, :bright, &1], true)).()
+        |> IO.puts
       end
     end
 

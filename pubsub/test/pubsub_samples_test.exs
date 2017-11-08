@@ -1,5 +1,6 @@
 defmodule GoogleApi.PubSub.Samples.Test do
   use ExUnit.Case
+  import ExUnit.CaptureIO
 
   @tag :external
   test "create and delete topic" do
@@ -8,20 +9,24 @@ defmodule GoogleApi.PubSub.Samples.Test do
     topic_name = "test-topic-#{:rand.uniform(100000)}"
 
     # Create the topic
-    result = GoogleApi.PubSub.Samples.create_topic(
-      project_id,
-      topic_name
-    )
+    output = capture_io(fn ->
+      GoogleApi.PubSub.Samples.create_topic(
+        project_id,
+        topic_name
+      )
+    end)
     assert String.contains?(
-      result,
+      output,
       "created projects/#{project_id}/topics/#{topic_name}"
     )
 
     # Delete the topic
-    result = GoogleApi.PubSub.Samples.delete_topic(
-      project_id,
-      topic_name
-    )
-    assert String.contains?(result, "deleted #{topic_name}")
+    output = capture_io(fn ->
+      GoogleApi.PubSub.Samples.delete_topic(
+        project_id,
+        topic_name
+      )
+    end)
+    assert String.contains?(output, "deleted #{topic_name}")
   end
 end
