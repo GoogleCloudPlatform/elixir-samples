@@ -32,6 +32,7 @@ defmodule GoogleApi.PubSub.Samples.Test do
   end
 
   test "run supervisor example" do
+    assert System.get_env("GOOGLE_PROJECT_ID")
     start_supervised MockInputAgentGetAndIncrement
     with_mock IO, [:passthrough], [gets: &io_gets/1] do
       output = capture_io(fn -> GoogleApi.PubSub.Samples.run() end)
@@ -41,7 +42,7 @@ defmodule GoogleApi.PubSub.Samples.Test do
     end
   end
 
-  def io_gets(prompt) do
+  defp io_gets(prompt) do
     case prompt do
       "Project ID?: " -> System.get_env("GOOGLE_PROJECT_ID")
       "Topic Name?: " -> "test-topic"

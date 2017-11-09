@@ -35,7 +35,7 @@ defmodule GoogleApi.PubSub.Samples.Subscriber do
     )
 
     if response.receivedMessages != nil do
-      for message <- response.receivedMessages do
+      Enum.each(response.receivedMessages, fn message ->
         # Acknowledge the message was received
         GoogleApi.PubSub.V1.Api.Projects.pubsub_projects_subscriptions_acknowledge(
           conn,
@@ -48,7 +48,7 @@ defmodule GoogleApi.PubSub.Samples.Subscriber do
         "received and acknowledged message: #{Base.decode64!(message.message.data)}"
         |> (&IO.ANSI.format([:green, :bright, &1])).()
         |> IO.puts
-      end
+      end)
     end
 
     listen(project_id, subscription_name)

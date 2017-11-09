@@ -213,8 +213,7 @@ defmodule GoogleApi.PubSub.Samples do
   end
 
   defp confirm_topic_creation do
-    get_response("Topic does not exist. Create it? (y/n): ")
-    |> case do
+    case get_response("Topic does not exist. Create it? (y/n): ") do
       "y" -> true
       _ -> nil
     end
@@ -226,8 +225,7 @@ defmodule GoogleApi.PubSub.Samples do
   end
 
   defp confirm_subscription_creation do
-    get_response("Subscription does not exist. Create it? (y/n): ")
-    |> case do
+    case get_response("Subscription does not exist. Create it? (y/n): ") do
       "y" -> true
       _ -> nil
     end
