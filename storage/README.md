@@ -37,7 +37,7 @@ type the following into the Interactive Elixir shell:
 iex(1)> GoogleApi.Storage.Samples.list_buckets("YOUR_PROJECT_ID")
 your_bucket_1
 your_bucket_2
-"done!"
+:ok
 ```
 
 [adc]: https://cloud.google.com/docs/authentication#getting_credentials_for_server-centric_flow

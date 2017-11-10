@@ -3,6 +3,7 @@ defmodule GoogleApi.Speech.Samples do
   Documentation for GoogleApi.Speech.Samples.
   """
 
+  # [START speech_sync_recognize]
   @doc """
   Transcribe text from an audio file.
 
@@ -10,7 +11,7 @@ defmodule GoogleApi.Speech.Samples do
 
       iex> GoogleApi.Speech.Samples.recognize("gs://elixir-samples/audio.raw", :LINEAR16, 16000)
       how old is the Brooklyn Bridge
-      "done!"
+      :ok
 
   """
   def recognize(audio_uri, encoding, sampleRateHertz, languageCode \\ "en_US") do
@@ -40,6 +41,6 @@ defmodule GoogleApi.Speech.Samples do
         IO.puts(alt.transcript)
       end)
     end)
-    "done!"
   end
+  # [END speech_sync_recognize]
 end

@@ -3,6 +3,7 @@ defmodule GoogleApi.BigQuery.Samples do
   Documentation for GoogleApi.BigQuery.Samples.
   """
 
+  # [START bigquery_sync_query]
   @doc """
   List BigQuery buckets for a project.
 
@@ -33,4 +34,5 @@ defmodule GoogleApi.BigQuery.Samples do
       end)
     end)
   end
+  # [END bigquery_sync_query]
 end
