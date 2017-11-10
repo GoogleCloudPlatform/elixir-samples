@@ -43,6 +43,18 @@ iex(2)> GoogleApi.PubSub.Samples.delete_topic("YOUR_PROJECT_ID", "test-topic")
 "deleted topic/YOUR_PROJECT_ID/topics/test-topic"
 ```
 
+## Running the PubSub Supervisor
+
+You can walk through an example of publishing and subscribing by running the
+following in IEx:
+
+```sh
+iex(1) GoogleApi.PubSub.Samples.run
+```
+
+This will walk you through an example of starting an elixir subscription task
+which processes PubSub messages asychronously.
+
 [pubsub]: https://cloud.google.com/pubsub/
 [adc]: https://cloud.google.com/docs/authentication#getting_credentials_for_server-centric_flow
 [service_account_key_file]: https://developers.google.com/identity/protocols/OAuth2ServiceAccount#creatinganaccount
