@@ -18,8 +18,8 @@ Code in this repository is licensed under the Apache 2.0. See [LICENSE](LICENSE)
 
 |Path|Description|
 |---|---|
-|[bigquery](bigquery)|Samples for using the Google Cloud BigQuery API.|
-|[getting-started](getting-started)|Bookshelf tutorial with DataStore integration.|
-|[pubsub](pubsub)|Samples for using the Google Cloud Pub/Sub API.|
-|[speech](speech)|Samples for using the Google Cloud Speech API.|
-|[storage](storage)|Samples for using the Google Cloud Storage API.|
+|[getting-started](getting-started)|**Tutorial**: bookshelf app with DataStore integration.|
+|[bigquery](bigquery)|**Samples**: Basic examples for using Google Cloud BigQuery API.|
+|[pubsub](pubsub)|**Samples**: Basic examples for using Google Cloud Pub/Sub API.|
+|[speech](speech)|**Samples**: Basic examples for using Google Cloud Speech API.|
+|[storage](storage)|**Samples**: Basic examples for using Google Cloud Storage API.|
