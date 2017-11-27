@@ -34,9 +34,9 @@ Now you can run the samples! For example, to transcribe an audio file, type the
 following into the Interactive Elixir shell:
 
 ```ex
-iex(1)> GoogleApi.Speech.Samples.recognize("gs://elixir-samples/audio.raw", :LINEAR16, 16000)
+iex(1)> GoogleApi.Speech.Samples.recognize("gs://elixir-samples/audio.raw", :LINEAR16, 32000)
 how old is the Brooklyn Bridge
-"done!"
+:ok
 ```
 
 To use your own sample audio sample, [upload an audio file][gcs_upload] to Cloud
