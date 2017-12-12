@@ -20,7 +20,7 @@ defmodule GoogleApi.Storage.Samples do
     Enum.each(response.items, &IO.puts(&1.id))
   end
 
-  # [start storage_upload_file]
+  # [START storage_upload_file]
   @doc """
   List storage buckets for a project.
 
@@ -48,5 +48,5 @@ defmodule GoogleApi.Storage.Samples do
     # Print the object.
     IO.puts("Uploaded #{object.name} to #{object.selfLink}")
   end
-  # [end storage_upload_file]
+  # [END storage_upload_file]
 end
