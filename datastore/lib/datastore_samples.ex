@@ -16,7 +16,7 @@ defmodule GoogleApi.Datastore.Samples do
   def create_task(name, description \\ "") do
     Diplomat.Entity.new(
       %{"description" => description},
-      "Task2",
+      "Task",
       name
     ) |> Diplomat.Entity.insert
     :ok
@@ -35,7 +35,7 @@ defmodule GoogleApi.Datastore.Samples do
   def list_tasks(limit \\ 20) do
     # Run the query
     results = Diplomat.Query.new(
-      "select * from `Task2` limit @limit",
+      "select * from `Task` limit @limit",
       %{limit: limit}
     ) |> Diplomat.Query.execute
 
