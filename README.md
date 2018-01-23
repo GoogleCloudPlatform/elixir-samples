@@ -20,6 +20,7 @@ Code in this repository is licensed under the Apache 2.0. See [LICENSE](LICENSE)
 |---|---|
 |[getting-started](getting-started)|**Tutorial**: bookshelf app with DataStore integration.|
 |[bigquery](bigquery)|**Samples**: Basic examples for using Google Cloud BigQuery API.|
+|[datastore](datastore)|**Samples**: Basic examples for creating and querying Datastore using Diplomat.|
 |[pubsub](pubsub)|**Samples**: Basic examples for using Google Cloud Pub/Sub API.|
 |[speech](speech)|**Samples**: Basic examples for using Google Cloud Speech API.|
 |[storage](storage)|**Samples**: Basic examples for using Google Cloud Storage API.|
