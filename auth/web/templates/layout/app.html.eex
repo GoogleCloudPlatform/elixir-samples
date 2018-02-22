@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>OAuth2/Phoenix!</title>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Google OAuth2 Example</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="https://github.com/GoogleCloudPlatform/elixir-samples/tree/master/auth">
+              <i class="fa fa-github"></i>
+              View on GitHub
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="jumbotron">
+      <span class="logo"></span>
+      <h2>Google OAuth2 Example Application!</h2>
+      <p class="lead">
+        This is an application to show how to wire up
+        <a href="https://developers.google.com/identity/protocols/OAuth2">Google</a> with
+        <a href="https://github.com/phoenixframework/phoenix">Phoenix</a> using
+        <a href="https://github.com/scrogson/oauth2">OAuth2</a>.
+      </p>
+      <p>
+        It is based off of the <a href="https://github.com/scrogson/oauth2_example">OAuth2 Sample Application</a>
+        for Phoenix.
+      </p>
+      <br>
+
+      <%= if @current_user do %>
+        <h2>Welcome, <%= @current_user.name %>!</h2>
+        <p><img src="<%= @current_user.avatar %>" class="img-circle"/></p>
+        <p><%= link "Logout", to: auth_path(@conn, :delete), method: :delete, class: "btn btn-danger" %></p>
+      <% else %>
+        <br>
+        <br>
+
+        <a class="btn btn-primary btn-lg" href="<%= auth_path @conn, :index %>">
+          <i class="fa fa-google"></i>
+          Sign in with Google
+        </a>
+      <% end %>
+    </div>
+
+    <main role="main">
+      <%= render @view_module, @view_template, assigns %>
+    </main>
+    <script src="<%= static_path(@conn, "/js/app.js") %>"</script>
+    <script>require("/web/static/app")</script>
+  </body>
+</html>

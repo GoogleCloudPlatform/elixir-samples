@@ -1,0 +1,7 @@
+env: flex
+runtime: gs://elixir-runtime/elixir.yaml
+
+env_variables:
+  GOOGLE_CLIENT_ID: YOUR_CLIENT_ID
+  GOOGLE_CLIENT_SECRET: YOUR_CLIENT_SECRET
+  GOOGLE_REDIRECT_URI: https://YOUR_PROJECT_ID.appspot.com/auth/callback
