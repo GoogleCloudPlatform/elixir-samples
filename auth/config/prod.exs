@@ -58,5 +58,7 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
-import_config "prod.secret.exs"
+
+# This is commented out because the auth example does not need it
+# import_config "prod.secret.exs"
 
