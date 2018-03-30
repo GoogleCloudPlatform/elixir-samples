@@ -33,7 +33,8 @@ defmodule GoogleOAuth2Example.Endpoint do
   plug Plug.Session,
     store: :cookie,
     key: "_google_oauth2_example_key",
-    signing_salt: "TN3lMCf5"
+    # replace this value with a salt you generate
+    signing_salt: "YOURSALT"
 
   plug GoogleOAuth2Example.Router
 end
