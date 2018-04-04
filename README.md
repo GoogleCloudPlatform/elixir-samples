@@ -19,6 +19,7 @@ Code in this repository is licensed under the Apache 2.0. See [LICENSE](LICENSE)
 |Path|Description|
 |---|---|
 |[getting-started](getting-started)|**Tutorial**: bookshelf app with DataStore integration.|
+|[auth](auth)|**Demo**: Phoenix app demonstrating OAuth2. View the demo at https://elixir-auth.appspot.com|
 |[bigquery](bigquery)|**Samples**: Basic examples for using Google Cloud BigQuery API.|
 |[datastore](datastore)|**Samples**: Basic examples for creating and querying Datastore using Diplomat.|
 |[pubsub](pubsub)|**Samples**: Basic examples for using Google Cloud Pub/Sub API.|
