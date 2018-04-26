@@ -55,7 +55,7 @@ defmodule GoogleOAuth2Example.AuthController do
   defp set_state(conn) do
     case conn |> get_session(:state) do
       nil ->
-        state = :crypto.strong_rand_bytes(32) |> Base.encode64 |> binary_part(0, 32)
+        state = :crypto.strong_rand_bytes(32) |> Base.url_encode64 |> binary_part(0, 32)
         conn |> put_session(:state, state)
       _ -> conn
     end
