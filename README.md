@@ -1,6 +1,6 @@
 # Google Cloud Platform Elixir Samples
 
-> Elixir on GCP is a **community-supported project**, meaning there is no offical
+> Elixir on GCP is a **community-supported project**, meaning there is no official
 > level of support. The code is not covered by any SLA or deprecation policy. 
 
 This repository holds sample code written in Elixir that demonstrates the Google
