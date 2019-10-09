@@ -19,6 +19,7 @@ To start the application:
     - Click `Create Credentials` > `OAuth client ID`
     - Select "Web application" as the application type
     - Enter http://localhost:4000/auth/callback as an authorized redirect URI
+    - Click `Dashboard` > `ENABLE APIS AND SERVICES` and enable "Google+ API"
 2. Set the `GOOGLE_REDIRECT_URI` environment variable to the callback URL
 3. Set the `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` environment variables
 4. Install Elixir dependencies with `mix deps.get`
