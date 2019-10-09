@@ -1,12 +1,15 @@
 # Google Cloud Platform Elixir Samples
 
+> Elixir on GCP is a **community-supported project**, meaning there is no official
+> level of support. The code is not covered by any SLA or deprecation policy. 
+
 This repository holds sample code written in Elixir that demonstrates the Google
 Cloud Platform.
 
 ## Contributing changes.
 
-Entirely new samples are not accepted. Bug fixes are welcome, either as pull
-requests or as GitHub issues.
+Entirely new samples and bug fixes are welcome, either as pull requests or as 
+GitHub issues.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute.
 
