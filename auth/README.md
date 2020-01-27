@@ -15,7 +15,7 @@
 
 To start the application:
 
-1. Register a new application in the [Google Developer Console](https://console.developer.google.com/apis/credentials)
+1. Register a new application in the [Google Developer Console](https://console.developers.google.com/apis/credentials)
     - Click `Create Credentials` > `OAuth client ID`
     - Select "Web application" as the application type
     - Enter http://localhost:4000/auth/callback as an authorized redirect URI
