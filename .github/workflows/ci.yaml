@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        otp: ['19.3', '20.1']
-        elixir: ['1.4', '1.5']
+        otp: ['20.3', '21.3', '22.2']
+        elixir: ['1.8.2', '1.9.4']
         samples: ['auth', 'bigquery', 'datastore', 'getting-started', 'pubsub', 'speech', 'storage']
     steps:
       - uses: actions/checkout@v2
