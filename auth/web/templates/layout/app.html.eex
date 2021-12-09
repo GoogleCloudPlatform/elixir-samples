@@ -20,7 +20,7 @@
         </div>
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a href="https://github.com/GoogleCloudPlatform/elixir-samples/tree/master/auth">
+            <a href="https://github.com/GoogleCloudPlatform/elixir-samples/tree/main/auth">
               <i class="fa fa-github"></i>
               View on GitHub
             </a>
