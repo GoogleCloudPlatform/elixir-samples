@@ -53,7 +53,7 @@ iex(1) GoogleApi.PubSub.Samples.run
 ```
 
 This will walk you through an example of starting an elixir subscription task
-which processes PubSub messages asychronously.
+which processes PubSub messages asynchronously.
 
 [pubsub]: https://cloud.google.com/pubsub/
 [adc]: https://cloud.google.com/docs/authentication#getting_credentials_for_server-centric_flow
