@@ -27,4 +27,5 @@ Code in this repository is licensed under the Apache 2.0. See [LICENSE](LICENSE)
 |[datastore](datastore)|**Samples**: Basic examples for creating and querying Datastore using Diplomat.|
 |[pubsub](pubsub)|**Samples**: Basic examples for using Google Cloud Pub/Sub API.|
 |[speech](speech)|**Samples**: Basic examples for using Google Cloud Speech API.|
+|[stackdriver_logging](stackdriver_logging)|**Samples**: Basic examples for using Google Cloud Stackdriver Logging API. |
 |[storage](storage)|**Samples**: Basic examples for using Google Cloud Storage API.|
