@@ -7,7 +7,11 @@ defmodule GoogleOAuth2Example.AuthController do
   be used to request an access token. The access token will then be used to
   access protected resources on behalf of the user.
   """
-  def callback(conn, %{"code" => code}) do
+  def callback(conn, %{"code" => code, "state" => state}) when is_binary(state) do
+    if conn |> get_session(:state) != state do
+      raise "state parameter is invalid."
+    end
+
     # Exchange an auth code for an access token
     client = Google.get_token!(code: code)
 
@@ -36,9 +40,9 @@ defmodule GoogleOAuth2Example.AuthController do
   This action is reached via `/auth` and redirects to the Google OAuth2 provider.
   """
   def index(conn, _params) do
-    redirect conn, external: Google.authorize_url!(
-      scope: "https://www.googleapis.com/auth/userinfo.email"
-    )
+    conn
+    |> set_state()
+    |> redirect_to_authrization_url()
   end
 
   def delete(conn, _params) do
@@ -46,5 +50,22 @@ defmodule GoogleOAuth2Example.AuthController do
     |> put_flash(:info, "You have been logged out!")
     |> configure_session(drop: true)
     |> redirect(to: "/")
+  end
+
+  defp set_state(conn) do
+    case conn |> get_session(:state) do
+      nil ->
+        state = :crypto.strong_rand_bytes(32) |> Base.url_encode64 |> binary_part(0, 32)
+        conn |> put_session(:state, state)
+      _ -> conn
+    end
+  end
+
+  defp redirect_to_authrization_url(conn) do
+    conn
+    |> redirect( external: Google.authorize_url!(
+      state: conn |> get_session(:state),
+      scope: "https://www.googleapis.com/auth/userinfo.email"
+    ))
   end
 end
